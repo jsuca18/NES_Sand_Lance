@@ -5,17 +5,6 @@ SL_TimeLag<-read.csv("SL_Time_Lag_Calanus_Pred_Data_200612.csv", header=TRUE)
 #get rid of anything after 2008 for sand lance 
 SL_TimeLag<-SL_TimeLag[1:32,]
 
-#an example of detrending the data
-#I did not do this for our paper. Might be something to think about if your data are 
-#more linearly trending as opposed to "regime-like" like the sand lance and herring tend to be.
-#Frankly, one could argue I should have done this, but no one mentioned it or called it out 
-#so I did not. It does make interpretation of the slope estimates a bit less intuitive, 
-#especially for projections. It can certainly make sense for explicitly focusing on 
-#explaining past trends though
-SL_TimeLag$SL_Detrend<-resid(lm(SL_SP_Anom~Year, data=SL_TimeLag))
-SL_TimeLag$Herring_Detrend<-resid(lm(Herr_Ind~Year, data=SL_TimeLag))
-
-
 #a quick example of a simple,modified CCF plot (for visual appearance and adjustment of sig level)
 #found the core of this online and further modified
 plot.acf <- function(ACFobj) {
