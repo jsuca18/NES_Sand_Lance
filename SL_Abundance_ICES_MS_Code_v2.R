@@ -28,7 +28,6 @@ Rolling_Cope_means$Lagged_year<-seq(1981, 2018, by=1)
 
 SL_Spring_Correlations<-merge(SL_TimeLag, Rolling_Cope_means, by.x=c("Year"), by.y=c("Lagged_year"))
 
-
 #parsing dataframe for rolling means
 Herring_mack<-SL_TimeLag[,names(SL_TimeLag) %in% c("Herr_Ind", "Year")]
 Herring_mack$Three_Year_Lag<-Herring_mack$Year+3
